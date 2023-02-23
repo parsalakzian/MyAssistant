@@ -96,7 +96,7 @@ def main(page: ft.page):
 
     def voiceRec():
         r = sr.Recognizer()
-        mic = sr.Microphone(device_index=2)
+        mic = sr.Microphone()
         while True:
             print("چه کاری از دستم بر میاد ؟")
             text = "چه کاری از دستم بر میاد ؟"
