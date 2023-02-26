@@ -17,7 +17,7 @@ import flet as ft
 
 
 
-wakeUpCall = ['ام جی','ان جی','سیستم','جی','اندی','حسین','انجیر','ال جی','ال','ام','ان','اینجا','اینجی']
+wakeUpCall = ['ام جی','ان جی','سیستم','اندی','انجیر','ال جی','جامی','جانی','ان','اینجا','اینجی']
 exit_commands = ['خروج','تمام','خارج']
 
 hi_commands = ['سلام']
@@ -109,6 +109,9 @@ def main(page: ft.page):
                 with mic as source:
                     audio = r.listen(source)
                     command = r.recognize_google (audio, language='fa-IR').lower()
+                    text2 = "شما:" + command
+                    lbl2 = ft.Text(text2 , weight=400 , color = "Yellow" , size=35 , text_align = ft.TextAlign.CENTER )
+                    page.add(lbl2)
                     if any(item in command for item in wakeUpCall):      
                         if any(item in command for item in hi_commands):
                             wishMe()
@@ -377,6 +380,10 @@ def main(page: ft.page):
                             time.sleep(2)
                             page.remove(lbl)
                             text = ("")
+                
+                page.remove(lbl2)
+                text2 = ("")
+                
             except Exception as e:
                 print(e)
                 r = sr.Recognizer()
